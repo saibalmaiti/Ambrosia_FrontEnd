@@ -1,0 +1,10 @@
+.btn,
+.jumbotron,
+.nav :hover {
+  border-radius: 0px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}

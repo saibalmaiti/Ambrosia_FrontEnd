@@ -1,0 +1,80 @@
+.large-container{
+    height: 105px;
+}
+.Wrapper{
+    padding: 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAEDF0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index:1;
+    position: fixed; 
+    top: 0; 
+    width: 100%;
+}
+.left-navbar{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    border-style: none;
+    margin:0;
+    padding:0;
+    height:80px;
+}
+.center-navbar{
+    flex: 1;
+    text-align: center;
+}
+.right-navbar{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.Link{
+    font-size:20px;
+    padding:0px 20px;
+}
+/* Navbar Button Style */
+.button {
+    background-color: #EC255A;  
+    border: none;
+    
+    color: #FAEDF0;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 10px;
+    }
+    
+    .signup {
+    border: 2px solid #292C6D;
+    background-color: #292C6D;
+    }
+    .signin{
+        background-color: #FAEDF0; 
+        color: #EC255A; 
+        border: solid #EC255A;
+    }
+    .signin:hover{
+    background-color: #EC255A;
+    color: #FAEDF0;
+    
+    }
+
+    /* cart icon style */
+    .cart-icon{
+        font-size: 2rem;
+        margin: 5px;
+        margin-right: 40px;
+        color:#161853;
+    }
