@@ -15,7 +15,7 @@ const Base = ({
   title1 = "My Title",
   title2= "",
   description = "",
-  className = "bg-dark text-white p-4",
+  className = "",
   children
 }) => {
   // eslint-disable-next-line

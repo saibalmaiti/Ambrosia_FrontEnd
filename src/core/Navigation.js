@@ -1,5 +1,5 @@
 import React from "react";
-import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
+import {Navbar, Container, Nav} from "react-bootstrap";
 import {FaShoppingBasket} from 'react-icons/fa';
 import {Link, withRouter} from "react-router-dom";
 import Provider from "../context/provider";
@@ -25,17 +25,24 @@ const Navigation = ({history}) =>{
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Link className="nav-link" to="/"><nav className="Link">Home</nav></Link>
-                            <Nav.Link><nav className="Link">About</nav></Nav.Link>
-                            <Nav.Link><nav className="Link">Menu</nav></Nav.Link>
-                            <nav className="Link"><NavDropdown title="Pages" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown></nav>
-                            <Nav.Link><nav className="Link">Contact</nav></Nav.Link>
+                            {!isAuthenticated()&&<React.Fragment>
+                                <Link className="nav-link" to="/"><nav className="Link">Home</nav></Link>
+                                <Nav.Link><nav className="Link">About</nav></Nav.Link>
+                                <Nav.Link><nav className="Link">Menu</nav></Nav.Link>
+                                <Nav.Link><nav className="Link">Contact</nav></Nav.Link>
+                            </React.Fragment>}
+                            {isAuthenticated()&&(isAuthenticated().appUserRole === "USER")&&<React.Fragment>
+                                <Link className="nav-link" to="/user/dashboard"><nav className="Link">Home</nav></Link>
+                                <Nav.Link><nav className="Link">About</nav></Nav.Link>
+                                <Nav.Link><nav className="Link">Menu</nav></Nav.Link>
+                                <Nav.Link><nav className="Link">Contact</nav></Nav.Link>
+                            </React.Fragment>}
+                            {isAuthenticated()&&(isAuthenticated().appUserRole === "ADMIN")&&<React.Fragment>
+                                <Link className="nav-link" to="/admin/dashboard"><nav className="Link">Home</nav></Link>
+                                <Nav.Link><nav className="Link">Orders</nav></Nav.Link>
+                                <Nav.Link><nav className="Link">Menu</nav></Nav.Link>
+                                <Nav.Link><nav className="Link">Posts</nav></Nav.Link>
+                            </React.Fragment>}
                         </Nav>
                         </Navbar.Collapse>
                     </Container>

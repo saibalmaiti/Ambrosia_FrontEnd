@@ -1,0 +1,29 @@
+.how-it-work-item{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.how-it-work-area{
+    background-image: url('https://d1xi1k2z09mzb6.cloudfront.net/banner/how-it-work-bg.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    background-position: center 95px;
+    padding-bottom: 150px;
+    padding-top: 150px;
+}
+.how-it-work-box{
+    padding-left: 70px;
+    padding-right: 70px;
+    background: #fff;
+    border-radius: 20px;
+    padding-top: 90px;
+    padding-bottom: 95px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.justify-content-center {
+    justify-content: center!important;
+}
