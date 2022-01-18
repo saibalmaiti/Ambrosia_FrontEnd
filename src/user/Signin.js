@@ -69,8 +69,9 @@ const Signin = () =>{
                   authenticate(data, ()=>{
                       setValues({...values,username:"",password:""});
                       
+                      
+                    //   successMessage("Sign in Successful");
                       setRenderobject(performRedirect());
-                      successMessage("Sign in Successful");
                   });
                   
               }
@@ -267,6 +268,7 @@ const Signin = () =>{
                                     setState("email")}}>
                                     Forget Password
                                 </p>
+                                {console.log(renderObject)}
                                 </React.Fragment>)}
                                 {(state==="email")&&enterEmailForm()}
                                 {(state==="otp")&&enterOTPForm()}

@@ -1,0 +1,46 @@
+.bg-blue{
+    background-color: #161853;
+}
+.fixed{
+    position: sticky;
+    top: 10rem;
+
+}
+.form-card{
+    padding-left: 70px;
+    padding-right: 70px;
+    background: #FAEDF0;
+    border-radius: 20px;
+    padding-top: 90px;
+    padding-bottom: 95px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.select-menu{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+}
+
+.menu-area{
+    background-image: url('https://d1xi1k2z09mzb6.cloudfront.net/banner/tamanna-rumee-DoUgSMezLp0-unsplash.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    background-position: center 95px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    
+}
+
+.overlay {
+    background-color: #fff;
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}

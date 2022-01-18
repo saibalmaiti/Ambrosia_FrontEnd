@@ -1,5 +1,5 @@
 import React from "react";
-import {Navbar, Container, Nav} from "react-bootstrap";
+import {Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
 import {FaShoppingBasket} from 'react-icons/fa';
 import {Link, withRouter} from "react-router-dom";
 import Provider from "../context/provider";
@@ -40,7 +40,11 @@ const Navigation = ({history}) =>{
                             {isAuthenticated()&&(isAuthenticated().appUserRole === "ADMIN")&&<React.Fragment>
                                 <Link className="nav-link" to="/admin/dashboard"><nav className="Link">Home</nav></Link>
                                 <Nav.Link><nav className="Link">Orders</nav></Nav.Link>
-                                <Nav.Link><nav className="Link">Menu</nav></Nav.Link>
+                                {/* <Link className="nav-link" to="/admin/menu"><nav className="Link">Menu</nav></Link> */}
+                                <NavDropdown className="Link" title="Menu" id="basic-nav-dropdown">
+                                <Link className="nav-link" to="/admin/menu/additem">Add Item</Link>
+                                <Link className="nav-link" to="/admin/menu/edititem">View Menu</Link>
+                                </NavDropdown>
                                 <Nav.Link><nav className="Link">Posts</nav></Nav.Link>
                             </React.Fragment>}
                         </Nav>
