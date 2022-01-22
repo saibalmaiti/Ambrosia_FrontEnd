@@ -33,14 +33,42 @@
     padding-top: 50px;
     
 }
-
+.container{
+    position: relative;
+    padding: 0;
+}
 .overlay {
-    background-color: #fff;
-    opacity: 0.75;
     position: absolute;
     top: 0;
-    left: 0;
     bottom: 0;
+    left: 0;
     right: 0;
-    z-index: -1;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #000;
+    z-index: 0;
+    text-align: center;
+}
+.overlay:hover{
+    opacity: 0.75;
+    cursor: pointer;
+}
+.price-tag{
+    font-size: 1.25em;
+    color: #F3212C;
+}
+.text {
+    color: white;
+    font-size: 1.875em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 1;
+    z-index: 0;
 }

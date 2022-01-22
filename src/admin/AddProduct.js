@@ -21,7 +21,7 @@ const AddProduct = ()=>{
     });
 
 
-    const {prodname, description, price, isVeg,category,file} = productDetails;
+    const {prodname, description, price, isVeg,category} = productDetails;
 
     const [listCategory, setListCategory] = useState([]);
 
@@ -164,7 +164,6 @@ const AddProduct = ()=>{
             {/* Right side Rendered Objects */}
             <div className="col-3"></div>
             <div className="col-6">
-                    <div className="overlay"></div>
                     <div className="form-card">
                         <div className="row justify-content-center" style={{marginBottom:"30px"}}>
                             <div className="col-lg-6">

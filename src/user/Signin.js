@@ -81,7 +81,7 @@ const Signin = () =>{
                     
 
               }})
-          .catch(console.log("Error in Sign in"))
+          .catch(()=>{console.log("Error in Sign in")})
 
     }
 
