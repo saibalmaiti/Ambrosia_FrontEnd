@@ -1,3 +1,19 @@
+.btn-outline-primary{
+    background-color: #161853;
+    border-color: #161853;
+    color: #fff;
+}
+.btn-outline-primary:hover{
+    background-color:#EC255A;
+    border-color: #EC255A;
+}
+.btn-check:checked+.btn-outline-primary{
+    background-color:#EC255A;
+    border-color: #EC255A;
+}
+/* TODO: button click state color change */
+
+
 .bg-blue{
     background-color: #161853;
 }

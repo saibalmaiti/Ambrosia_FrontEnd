@@ -134,6 +134,28 @@ export const updateImage = (id,file,jwt) =>{
     })
 }
 
+export const updateItemDetailsinDB = (item,jwt) =>{
+    const bearer = "Bearer "+jwt;
+    // console.log(item);
+    return axios({
+        method:'put',
+        url: String(API) + 'menu/modify-item',
+        headers:{
+            "Authorization":bearer,
+            "Content-Type":"application/json"
+        },
+        data: item
+    })
+    .then(response=>{
+        // console.log(response);
+        return response;
+    })
+    .catch(error=>{
+        console.log(error);
+        return error;
+    })
+}
+
 export const deleteItemfromDB = (id, jwt) =>{
     const bearer = "Bearer "+jwt;
     let itemData = new FormData();

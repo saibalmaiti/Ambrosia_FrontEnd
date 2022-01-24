@@ -60,16 +60,17 @@ const ProductCard=(props)=>{
         .catch(()=>{console.log("error in item deletion")})
     }
 
-    const updateItem =()=>{
-        var obj = {
-            "id":props.id,
-            "description": props.desc,
-            "name": props.title,
-            "isVeg":props.isVeg,
-            "category":props.category
-        }
-        console.log(obj);
-    }
+    // const updateItem =()=>{
+        // var obj = {
+        //     "id":props.id,
+        //     "description": props.desc,
+        //     "name": props.title,
+        //     "isVeg":props.isVeg,
+        //     "imageFileName": imgname,
+        //     "category":props.category
+        // }
+    //     console.log(obj);
+    // }
     return(<div className="col-4 mb-5">
                 <div className="card me-2" style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",height:"100%"}}>
                     <div className="container">
@@ -85,13 +86,21 @@ const ProductCard=(props)=>{
                         <p className="card-text">{props.desc}</p>
                         <div className="row">
                             <div className="col-4"><h5 className="price-tag">{"₹"+props.price}</h5></div>
-                            <div className="col-6"><h5 style={{color:"#292C6D"}}>{(props.category.charAt(0).toUpperCase() + props.category.slice(1))}</h5></div>
+                            <div className="col-6"><h5 style={{color:"#292C6D"}}>{(props.category.name.charAt(0).toUpperCase() + props.category.name.slice(1))}</h5></div>
                             <div className="col-2">{props.isVeg ? <img src="/vegsign.png" style={{height:"20px",width:"20px", display:"inline-block"}} alt="..."/>:
                         <img src="/nonvegsign.png" style={{height:"20px",width:"20px"}} alt="..."/>}</div> 
                         </div>
                     </div>
                     <div className="card-footer">
-                        <button className="btn button" onClick={updateItem}>Update</button>
+                        <button className="btn button" onClick={()=>{props.updateItemFunction({
+                            "id":props.id,
+                            "description": props.desc,
+                            "name": props.title,
+                            "isVeg":props.isVeg,
+                            "price":props.price,
+                            "imageFileName": imgname,
+                            "category":props.category
+                        },true)}}>Update</button>
                         <button className="btn button ms-lg-auto" onClick={deleteItem}>Remove</button>
                     </div>
                 </div>        
