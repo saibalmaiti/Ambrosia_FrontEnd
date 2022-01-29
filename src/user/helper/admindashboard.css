@@ -1,0 +1,36 @@
+.btn-primary{
+    border-radius: 10px;
+    background-color: #292C6D;
+    border-color: #292C6D;
+}
+.btn-primary:hover{
+    background-color: #191b44;
+    border-color: #292C6D;
+}
+.btn-primary:focus{
+    background-color:#3a3d6e ;
+}
+.btn-primary:disabled{
+    background-color: #7a7ec0;
+    border-color: #7a7ec0;
+}
+.shop-control-area{
+    background-image: url('/christian-burri-LEuojpCCbOA-unsplash.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    background-position: center 95px;
+    padding-bottom: 150px;
+    padding-top: 80px;
+}
+.shop-control-box{
+    padding-left: 70px;
+    padding-right: 70px;
+    background: #fff;
+    border-radius: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+}

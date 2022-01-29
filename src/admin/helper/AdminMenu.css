@@ -11,7 +11,10 @@
     background-color:#EC255A;
     border-color: #EC255A;
 }
-/* TODO: button click state color change */
+.btn-check:active+.btn-outline-primary{
+    background-color:#EC255A;
+    border-color: #EC255A;
+}
 
 
 .bg-blue{

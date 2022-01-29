@@ -57,7 +57,9 @@ const AddProduct = ()=>{
 
     useEffect(()=>{
         getItem()
-    },[])
+    },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [])
     
 
     const handelChange = name => event => {

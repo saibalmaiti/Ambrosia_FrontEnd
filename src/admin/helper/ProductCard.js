@@ -25,7 +25,6 @@ const ProductCard=(props)=>{
             setSelectedFile(null);
         }
     }
-
     useEffect(()=>{
         if(selectedFile){
             console.log(selectedFile)

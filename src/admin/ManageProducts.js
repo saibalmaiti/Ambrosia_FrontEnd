@@ -83,10 +83,10 @@ const ManageProducts = () =>{
         })
         .catch(error =>{console.log("Failed"+error)});
     }
-
     useEffect(()=>{
-        getCategory()},[])
-
+        getCategory()},
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [])
     useEffect(()=>{
         getProducts()
     },[filterValue])
