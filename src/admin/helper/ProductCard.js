@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { CLOUDFRONT } from "../../backend";
-import { deleteItemfromDB, updateImage } from "./adminapicall";
+import { deleteItemfromDB, updateImage, toggleActive } from "./adminapicall";
 import {isAuthenticated} from "../../auth/helper/index"; 
 import "../../core/Navigation.css";
 import "./AdminMenu.css";
@@ -12,6 +12,7 @@ const ProductCard=(props)=>{
     const [imgname, setImgname] = useState(props.src);
     const inputFile = useRef(null);
     const [selectedFile, setSelectedFile] = useState(null);
+    const [isActive, setIsActive] = useState(props.isActive);
 
     const selectImage = () =>{
         inputFile.current.click();
@@ -72,15 +73,14 @@ const ProductCard=(props)=>{
     // }
     return(<div className="col-4 mb-5">
                 <div className="card me-2" style={{boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",height:"100%"}}>
-                    <div className="container">
+                    <div className={"container"+(isActive?"":" card-disable")}>
                         <img src={String(CLOUDFRONT)+imgname} className="card-img-top" alt="..."/>
                         <div className="overlay" onClick={selectImage}>
                         {/* Useref hooks to be used */}
                             <input type="file" id="file" ref={inputFile} onChange={handelFile} style={{ display: "none" }}/>
                             <div className="text">Update Image</div></div>
-                        
                     </div>
-                    <div className="card-body">
+                    <div className={"card-body"+(isActive?"":" card-disable")}>
                         <h4 className="card-title">{props.title}</h4>
                         <p className="card-text">{props.desc}</p>
                         <div className="row">
@@ -91,16 +91,41 @@ const ProductCard=(props)=>{
                         </div>
                     </div>
                     <div className="card-footer">
-                        <button className="btn button" onClick={()=>{props.updateItemFunction({
-                            "id":props.id,
-                            "description": props.desc,
-                            "name": props.title,
-                            "isVeg":props.isVeg,
-                            "price":props.price,
-                            "imageFileName": imgname,
-                            "category":props.category
-                        },true)}}>Update</button>
-                        <button className="btn button ms-lg-auto" onClick={deleteItem}>Remove</button>
+                        <div className="row">
+                            <div className="col-4">
+                                <button className="btn button" onClick={()=>{props.updateItemFunction({
+                                    "id":props.id,
+                                    "description": props.desc,
+                                    "name": props.title,
+                                    "isVeg":props.isVeg,
+                                    "price":props.price,
+                                    "isActive":isActive,
+                                    "imageFileName": imgname,
+                                    "category":props.category
+                                },true)}}>Update</button>
+                            </div>
+                            <div className="col-4">
+                                <button className="btn button" onClick={deleteItem}>Remove</button>
+                            </div>
+                            <div className="col-4">
+                                <div className="form-check form-switch">
+                                    <input className="form-check-input mt-3" type="checkbox" id="flexSwitchCheckDefault" value={!isActive} checked={isActive} onChange={()=>{
+                                        const user = isAuthenticated();
+                                        toggleActive(props.id,user.jwt)
+                                        .then(response=>{
+                                            if(typeof response.data !== 'undefined'){
+                                                setIsActive(response.data.isActive);
+                                            }
+                                            else{
+                                                alert(response.response.data);
+                                            }
+                                        })
+                                        .catch(()=>console.log("Error in Changing Active State of Product"))
+                                    }}/>
+                                    <label className="form-check-label ms-2" htmlFor="flexSwitchCheckDefault">{isActive?"Item Active":"Item Inactive"}</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>        
     </div>

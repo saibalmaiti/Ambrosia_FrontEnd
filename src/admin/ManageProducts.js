@@ -23,6 +23,7 @@ const ManageProducts = () =>{
         price: 0,
         imageFileName:"",
         isVeg: false,
+        isActive: null,
         category: {categoryId:0,name:""}
     });
     
@@ -101,6 +102,7 @@ const ManageProducts = () =>{
         price:itemDetails.price,
         imageFileName:itemDetails.imageFileName,
         isVeg:itemDetails.isVeg,
+        isActive:itemDetails.isActive,
         category:itemDetails.category
         })
     }
@@ -260,7 +262,9 @@ const ManageProducts = () =>{
                             title={item.name} 
                             desc={item.description} 
                             category={item.category} 
-                            price={item.price} isVeg={item.isVeg} 
+                            price={item.price}
+                            isVeg={item.isVeg}
+                            isActive = {item.isActive} 
                             getItemFunction = {getProducts}
                             updateItemFunction = {openUpdateModal} />
                     )

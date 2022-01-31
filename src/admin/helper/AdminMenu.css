@@ -20,6 +20,10 @@
 .bg-blue{
     background-color: #161853;
 }
+
+.card-disable{
+    opacity: 0.4;
+}
 .fixed{
     position: sticky;
     top: 10rem;

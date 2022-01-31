@@ -176,3 +176,20 @@ export const deleteItemfromDB = (id, jwt) =>{
         return error;
     })
 }
+
+export const toggleActive = (id,jwt) =>{
+    const bearer = "Bearer "+jwt;
+    return axios({
+        method: 'put',
+        url: String(API) + 'menu/toggle-item-active?id='+String(id),
+        headers:{
+            "Authorization":bearer
+        }
+    })
+    .then(response=>{
+        return response;
+    })
+    .catch(error=>{
+        return error;
+    })
+}
