@@ -4,6 +4,7 @@ import PackageContext from './context';
 
 const Provider = props => {
     const [show, setShow] = useState(false)
+    const [cart, setCart] = useState([])
     // console.log(show)
     return (
         <PackageContext.Provider
@@ -13,6 +14,13 @@ const Provider = props => {
                 },
             handleShow: ()=>{
                 setShow(true)
+            },
+            cartData: cart,
+            setCartItem: (item) =>{
+                setCart([...cart, item])
+            },
+            setCart:(array)=>{
+                setCart(array)
             }
         }}>
             {props.children}

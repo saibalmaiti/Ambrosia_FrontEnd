@@ -71,7 +71,7 @@ const Signin = () =>{
                       
                       
                     //   successMessage("Sign in Successful");
-                      setRenderobject(performRedirect());
+                      setRenderobject(()=>performRedirect());
                   });
                   
               }
@@ -268,7 +268,7 @@ const Signin = () =>{
                                     setState("email")}}>
                                     Forget Password
                                 </p>
-                                {console.log(renderObject)}
+                                {/* {console.log(renderObject)} */}
                                 </React.Fragment>)}
                                 {(state==="email")&&enterEmailForm()}
                                 {(state==="otp")&&enterOTPForm()}
@@ -281,11 +281,11 @@ const Signin = () =>{
                                 setPasswords({...passwords,password:"",confrpassword:""});
                                 setState("signin");
                                 context.handleClose();}}>Close</Button>
-                                {(state==="signin")&&(<Button variant="primary" style={{backgroundColor: "#EC255A"}} onClick={(event)=> {
+                                {(state==="signin")&&(<Button variant="primary" style={{borderRadius:"0px",backgroundColor: "#EC255A"}} onClick={(event)=> {
                                     onSubmit(event);
                                     context.handleClose();
                                 }}>Sign In</Button>)}
-                                {!(state==="signin")&&(<Button variant="primary" style={{backgroundColor: "#EC255A"}} onClick={()=> {
+                                {!(state==="signin")&&(<Button variant="primary" style={{borderRadius:"0px",backgroundColor: "#EC255A"}} onClick={()=> {
                                 (state==="email")&&onEmailSubmit();
                                 (state==="otp") && onOtpSubmit();
                                 (state==="password"&&onPasswordSubmit(()=>{context.handleClose();setState("signin");}));

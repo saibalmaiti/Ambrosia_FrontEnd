@@ -1,13 +1,13 @@
 import React from "react";
 import "../styles.css";
-import { API, CLOUDFRONT } from "../backend";
+import {CLOUDFRONT} from "../backend";
 import Base from "./Base";
 import Navigation from "./Navigation";
 import "./Home.css";
 
 const Home = () => {
-  console.log("API IS", API);
-  console.log("Image CDN IS", CLOUDFRONT);
+  // console.log("API IS", API);
+  // console.log("Image CDN IS", CLOUDFRONT);
 
   const Processitem=(props)=>(
     <div className="col-lg-4 col-md-8">

@@ -74,7 +74,9 @@
     /* cart icon style */
     .cart-icon{
         font-size: 2rem;
-        margin: 5px;
-        margin-right: 40px;
+        
+        margin-top: 0px;
+        
+        padding: 0px;
         color:#161853;
     }
