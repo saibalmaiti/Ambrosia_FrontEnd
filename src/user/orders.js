@@ -1,40 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { isAuthenticated } from "../auth/helper";
-import { getAllOrders } from "./helper/adminapicall";
+import Provider from "../context/provider";
 import Navigation from "../core/Navigation";
-import AdminOrderList from "./helper/AdminOrderList";
+import OrderItemList from "./helper/orderItemList";
+import { getAllOrders } from "./helper/userapicalls";
+import { isAuthenticated } from "../auth/helper";
 
-const AdminOrders = () =>{
+
+const Orders = () => {
     const [orderList, setOrderList] = useState([]);
-    const retriveAllOrders = () =>{
+    const retriveOrderData = () =>{
         const user = isAuthenticated();
-        getAllOrders(user.jwt).then((data) => {
-            console.log(data.data);
+        getAllOrders(user.appUserId, user.jwt).then((data) => {
+            // console.log(data.data);
             setOrderList(data.data);
         }).catch(()=>console.log("Error while retriving data"))
     }
     useEffect(()=>{
-        retriveAllOrders()
+        retriveOrderData()
     }, []);
-    return (
+
+    return (<Provider>
         <div style={{paddingBottom:"50px"}}>
             <Navigation />
             {orderList.map((item, index)=>{
                 return(
-                    <AdminOrderList
+                    <OrderItemList
                         key = {index}
-                        userId = {item.userId}
                         orderId = {item.orderId}
                         totalPrice = {item.totalPrice}
                         orderStatus = {item.orderStatus}
                         createdAt = {item.createdAt}
                         orderItemList = {item.orderItemList}
+                        razorpayOrderId = {item.razorpayOrderId}
                     />
                     )
             })}
             
         </div>
-    )
+    </Provider>)
 }
 
-export default AdminOrders;
+export default Orders;

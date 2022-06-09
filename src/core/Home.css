@@ -1,12 +1,12 @@
-.how-it-work-item{
+.how-it-work-item {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.how-it-work-area{
-    background-image: url('https://d1xi1k2z09mzb6.cloudfront.net/banner/jumbotron-image1.jpg');
-    background-size:cover;
+.how-it-work-area {
+    background-image: url("https://d1xi1k2z09mzb6.cloudfront.net/banner/jumbotron-image1.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     position: relative;
@@ -14,7 +14,8 @@
     padding-bottom: 150px;
     padding-top: 150px;
 }
-.how-it-work-box{
+
+.how-it-work-box {
     padding-left: 70px;
     padding-right: 70px;
     background: #fff;
@@ -24,6 +25,7 @@
     margin-left: 50px;
     margin-right: 50px;
 }
+
 .justify-content-center {
-    justify-content: center!important;
+    justify-content: center !important;
 }

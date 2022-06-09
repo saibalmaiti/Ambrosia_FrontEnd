@@ -193,3 +193,36 @@ export const toggleActive = (id,jwt) =>{
         return error;
     })
 }
+
+export const getAllOrders = (jwt) =>{
+    const bearer = "Bearer "+jwt;
+    return axios({
+        method: 'GET',
+        url: String(API) + 'order/get-all-orders',
+        headers:{
+            "Authorization":bearer
+        }
+    })
+    .then(response=>{
+        return response;
+    })
+    .catch(error=>{
+        return error;
+    })
+}
+
+export const getUserName = (userId, jwt) =>{
+    const bearer = "Bearer "+jwt; 
+    return axios({
+        method:"GET",
+        url: String(API) + "app-user/get-user-by-id?userid=" + userId,
+        headers:{
+            "Authorization":bearer
+        }
+    }).then(response =>{
+        return response;
+    }).catch(error =>{
+        return error;
+    })
+}
+

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState, useCallback } from "react";
 import Navigation from "../core/Navigation";
 import {CLOUDFRONT} from "../backend";
 import "./helper/admindashboard.css";
@@ -17,7 +18,7 @@ const AdminDashBoard = () =>{
 
     const [email, setEmail] = useState("");
 
-    const getshopstatus = () =>{
+    const getshopstatus = useCallback(() =>{
         getStatus(date,user.jwt)
         .then(response=>{
             if(typeof(response.data) !== 'undefined'){
@@ -34,7 +35,7 @@ const AdminDashBoard = () =>{
             }
         })
         .catch(()=>console.log('Error to get status'))
-    }
+    })
 
     const setshopstatus = () =>{
         const details = {
@@ -89,7 +90,7 @@ const AdminDashBoard = () =>{
     }
 
     useEffect(()=>
-        getshopstatus(),[])
+        getshopstatus(),[getshopstatus])
     
     const verifyForm = () =>{
         return(
@@ -130,8 +131,8 @@ const AdminDashBoard = () =>{
                         <div className="row">
                             <div className="col-7">
                                 <div className="container" style={{height:"25rem"}}>
-                                {shopestatus==='CLOSE'?<img src="/shop-close.jpg" style={{height:"100%",width:"100%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.5)"}} alt="...closed"/>
-                                :<img src="/shop-open.jpg" style={{height:"100%",width:"100%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.5)"}} alt="...closed"/>}
+                                {shopestatus==='CLOSE'?<img src="/shop-close.png" style={{height:"90%",width:"60%", marginLeft:"auto", marginRight:"auto"}} alt="...closed"/>
+                                :<img src="/shop-open.png" style={{height:"90%",width:"60%", marginLeft:"auto", marginRight:"auto"}} alt="...closed"/>}
                                 </div>
                             </div>
                             <div className="col-5">

@@ -5,7 +5,7 @@ import PackageContext from './context';
 const Provider = props => {
     const [show, setShow] = useState(false)
     const [cart, setCart] = useState([])
-    // console.log(show)
+    // console.log(cart)
     return (
         <PackageContext.Provider
         value={{data: show,
